@@ -34,7 +34,7 @@ export default defineConfig({
     }),
     viteReact(),
     nitro({
-      defaultPreset: "node-server",
+      preset: process.env.NITRO_PRESET || "node-server",
       output: {
         dir: "dist",
         serverDir: "dist/server",
