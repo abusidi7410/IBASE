@@ -6,6 +6,9 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 
+const preset = process.env.NITRO_PRESET || "node-server";
+const isVercel = preset === "vercel";
+
 export default defineConfig({
   server: {
     host: "::",
@@ -34,12 +37,16 @@ export default defineConfig({
     }),
     viteReact(),
     nitro({
-      preset: process.env.NITRO_PRESET || "node-server",
-      output: {
-        dir: "dist",
-        serverDir: "dist/server",
-        publicDir: "dist/client",
-      },
+      preset,
+      ...(isVercel
+        ? {}
+        : {
+            output: {
+              dir: "dist",
+              serverDir: "dist/server",
+              publicDir: "dist/client",
+            },
+          }),
     }),
   ],
 });
