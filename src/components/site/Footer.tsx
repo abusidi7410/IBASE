@@ -25,7 +25,11 @@ export function Footer() {
     <footer className="bg-charcoal text-charcoal-foreground">
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="max-w-sm">
-          <span className="text-lg font-semibold tracking-tight">TOSS</span>
+          <img
+            src="/logo.jpeg"
+            alt="Tech One-Stop Solution Ltd"
+            className="h-10 w-auto"
+          />
           <p className="mt-4 text-sm leading-relaxed text-charcoal-foreground/70">
             {company.name} provides innovative and future-ready ICT solutions in
             Nigeria — connectivity, networking, cloud, cybersecurity, software,
