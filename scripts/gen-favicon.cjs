@@ -162,5 +162,11 @@ function encodePNG(px, size) {
 
 const px = render();
 const png = encodePNG(px, SIZE);
-fs.writeFileSync("public/favicon.png", png);
-console.log("favicon.png written", png.length, "bytes");
+
+// DEPRECATED: favicons now use the actual TOSS logo (public/favicon-*.png
+// and public/apple-touch-icon.png are derived from the official logo asset via
+// the image-editing step, not this script). This script previously generated a
+// placeholder green "TOSS" text icon which is no longer the brand favicon.
+// It intentionally no longer writes public/favicon.png so it cannot overwrite
+// the real logo favicon.
+console.log("gen-favicon.cjs is deprecated. The favicon uses the actual TOSS logo.");
