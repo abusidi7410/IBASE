@@ -6,8 +6,9 @@
 
 /*
  * TOSS design system — restrained corporate palette.
- * Deep forest green primary, warm off-white surfaces, charcoal text,
- * muted gold used only as a small accent.
+ * Warm off-white surfaces, charcoal text, neutral gray body.
+ * TOSS brand orange (matched from the company logo) used only as an
+ * accent: primary CTAs, icons, links, active states and small details.
  */
 
 @theme inline {
@@ -24,6 +25,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -37,6 +39,7 @@
   --color-ring: var(--ring);
   --color-charcoal: var(--charcoal);
   --color-charcoal-foreground: var(--charcoal-foreground);
+  --color-primary-soft: var(--primary-soft);
   --color-gold: var(--gold);
   --color-surface: var(--surface);
 }
@@ -46,33 +49,37 @@
   --font-body:
     "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* #F7F7F2 */
+  /* #F7F7F2 (warm off-white) */
   --background: oklch(0.972 0.006 106);
-  /* #202522 */
+  /* #202522 (deep charcoal) */
   --foreground: oklch(0.256 0.006 152);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.256 0.006 152);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.256 0.006 152);
-  /* #12372A */
-  --primary: oklch(0.311 0.049 158);
-  --primary-foreground: oklch(0.982 0.004 106);
+  /* #D68112 (TOSS brand orange — matched from the logo) */
+  --primary: oklch(0.679 0.149 64.3);
+  --primary-foreground: oklch(0.99 0 0);
+  /* #BE6B00 (darker brand orange for hover) */
+  --primary-hover: oklch(0.609 0.142 60.9);
+  /* #FBF2E5 (very light orange tint for soft surfaces / hover) */
+  --primary-soft: oklch(0.955 0.022 70);
   --secondary: oklch(0.949 0.005 106);
-  --secondary-foreground: oklch(0.311 0.049 158);
+  --secondary-foreground: oklch(0.583 0.145 60);
   --muted: oklch(0.949 0.005 106);
-  /* #6B716D */
+  /* #6B716D (neutral gray) */
   --muted-foreground: oklch(0.532 0.006 152);
-  --accent: oklch(0.949 0.005 106);
-  --accent-foreground: oklch(0.311 0.049 158);
+  --accent: oklch(0.955 0.022 70);
+  --accent-foreground: oklch(0.583 0.145 60);
   --destructive: oklch(0.52 0.18 27);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.898 0.005 106);
   --input: oklch(0.878 0.005 106);
-  --ring: oklch(0.311 0.049 158);
+  --ring: oklch(0.679 0.149 64.3);
   --charcoal: oklch(0.256 0.006 152);
   --charcoal-foreground: oklch(0.972 0.006 106);
-  /* #B89B5E */
-  --gold: oklch(0.703 0.076 85);
+  /* #D68112 (TOSS brand orange accent) */
+  --gold: oklch(0.679 0.149 64.3);
   --surface: oklch(1 0 0);
 }
 

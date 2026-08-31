@@ -25,15 +25,11 @@ export function Footer() {
     <footer className="bg-charcoal text-charcoal-foreground">
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="max-w-sm">
-          <img
-            src="/logo.jpeg"
-            alt="Tech One-Stop Solution Ltd"
-            className="h-10 w-auto"
-          />
+          <img src="/logo.jpeg" alt="Tech One-Stop Solution Ltd" className="h-10 w-auto" />
           <p className="mt-4 text-sm leading-relaxed text-charcoal-foreground/70">
-            {company.name} provides innovative and future-ready ICT solutions in
-            Nigeria — connectivity, networking, cloud, cybersecurity, software,
-            surveillance, renewable energy and consultancy.
+            {company.name} provides innovative and future-ready ICT solutions in Nigeria —
+            connectivity, networking, cloud, cybersecurity, software, surveillance, renewable energy
+            and consultancy.
           </p>
         </div>
 
@@ -46,7 +42,7 @@ export function Footer() {
               <li key={l.to}>
                 <Link
                   to={l.to}
-                  className="text-charcoal-foreground/80 transition-colors hover:text-charcoal-foreground"
+                  className="text-charcoal-foreground/80 transition-colors hover:text-primary"
                 >
                   {l.label}
                 </Link>
@@ -60,7 +56,7 @@ export function Footer() {
           <ul className="mt-5 space-y-3 text-sm text-charcoal-foreground/80">
             {serviceLinks.map((s) => (
               <li key={s}>
-                <Link to="/services" className="transition-colors hover:text-charcoal-foreground">
+                <Link to="/services" className="transition-colors hover:text-primary">
                   {s}
                 </Link>
               </li>
@@ -73,18 +69,12 @@ export function Footer() {
           <address className="mt-5 space-y-3 text-sm not-italic text-charcoal-foreground/80">
             <p>{company.city}</p>
             <p>
-              <a
-                href={`tel:${company.phoneHref}`}
-                className="transition-colors hover:text-charcoal-foreground"
-              >
+              <a href={`tel:${company.phoneHref}`} className="transition-colors hover:text-primary">
                 {company.phone}
               </a>
             </p>
             <p>
-              <a
-                href={`mailto:${company.email}`}
-                className="transition-colors hover:text-charcoal-foreground"
-              >
+              <a href={`mailto:${company.email}`} className="transition-colors hover:text-primary">
                 {company.email}
               </a>
             </p>

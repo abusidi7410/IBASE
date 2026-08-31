@@ -42,8 +42,11 @@ export function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground font-medium" }}
+              className="relative text-sm text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{
+                className:
+                  "text-foreground font-medium after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-full after:bg-primary",
+              }}
             >
               {l.label}
             </Link>
@@ -54,7 +57,7 @@ export function Navbar() {
           <Link
             to="/contact"
             hash="quote"
-            className="inline-flex h-10 items-center rounded-sm bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex h-10 items-center rounded-sm bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
           >
             Request a Quote
           </Link>
@@ -74,16 +77,14 @@ export function Navbar() {
 
       {open && (
         <div id="mobile-menu" className="border-t bg-background lg:hidden">
-          <nav
-            aria-label="Mobile"
-            className="container-page flex flex-col py-2"
-          >
+          <nav aria-label="Mobile" className="container-page flex flex-col py-2">
             {links.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
                 className="border-b border-border/60 py-4 text-base text-foreground last:border-0"
+                activeProps={{ className: "text-primary font-medium" }}
               >
                 {l.label}
               </Link>
@@ -92,7 +93,7 @@ export function Navbar() {
               to="/contact"
               hash="quote"
               onClick={() => setOpen(false)}
-              className="my-4 inline-flex h-12 items-center justify-center rounded-sm bg-primary px-4 text-sm font-medium text-primary-foreground"
+              className="my-4 inline-flex h-12 items-center justify-center rounded-sm bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
             >
               Request a Quote
             </Link>

@@ -38,7 +38,7 @@ function About() {
           />
           <img
             src={engineersImage}
-            alt="TOSS-style network engineering work on enterprise rack equipment"
+            alt="Server racks and network cabling in a data center environment"
             width={1280}
             height={960}
             loading="lazy"
@@ -51,29 +51,24 @@ function About() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <p className="eyebrow">Our role</p>
-            <p className="mt-4 text-sm font-semibold tracking-[0.16em] text-primary">
-              EST. 2020
-            </p>
+            <p className="mt-4 text-sm font-semibold tracking-[0.16em] text-primary">EST. 2020</p>
           </div>
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground lg:col-span-8">
             <p>
-              TOSS works as a single point of contact for information and
-              communications technology. Our work spans ICT infrastructure,
-              network design and implementation, connectivity, telecom and VoIP,
-              cybersecurity, cloud computing, custom software development, CCTV
+              TOSS works as a single point of contact for information and communications technology.
+              Our work spans ICT infrastructure, network design and implementation, connectivity,
+              telecom and VoIP, cybersecurity, cloud computing, custom software development, CCTV
               surveillance, renewable energy and IT consultancy.
             </p>
             <p>
-              We support digital transformation programmes for government
-              institutions, enterprises, hospitals, educational institutions,
-              financial organizations, telecommunications operators and SMEs —
-              from initial consultation and design through implementation,
+              We support digital transformation programmes for government institutions, enterprises,
+              hospitals, educational institutions, financial organizations, telecommunications
+              operators and SMEs — from initial consultation and design through implementation,
               training and ongoing support.
             </p>
             <p>
-              Our approach is straightforward: understand the operational
-              requirement, specify technology that is dependable and
-              maintainable, and stay involved after commissioning.
+              Our approach is straightforward: understand the operational requirement, specify
+              technology that is dependable and maintainable, and stay involved after commissioning.
             </p>
           </div>
         </div>

@@ -14,11 +14,9 @@ export function ProjectsList() {
               {p.sector}
             </p>
           </div>
-          <p className="text-sm leading-relaxed text-muted-foreground md:col-span-6">
-            {p.scope}
-          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground md:col-span-6">{p.scope}</p>
           <p className="text-sm tabular-nums text-foreground md:col-span-2 md:text-right">
-            <span className="border-b-2 border-gold pb-0.5">{p.year}</span>
+            <span className="border-b-2 border-primary pb-0.5 text-primary">{p.year}</span>
           </p>
         </li>
       ))}

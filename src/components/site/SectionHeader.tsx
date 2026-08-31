@@ -14,10 +14,17 @@ export function SectionHeader({
   as?: "h1" | "h2";
 }) {
   return (
-    <div
-      className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}
-    >
-      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
+    <div className={`max-w-2xl ${align === "center" ? "mx-auto text-center" : ""}`}>
+      {eyebrow && (
+        <p
+          className={`eyebrow flex items-center gap-2.5 ${
+            align === "center" ? "justify-center" : ""
+          }`}
+        >
+          <span className="h-px w-6 bg-primary" aria-hidden="true" />
+          {eyebrow}
+        </p>
+      )}
       <As
         className={`${
           As === "h1"
@@ -27,11 +34,7 @@ export function SectionHeader({
       >
         {title}
       </As>
-      {intro && (
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-          {intro}
-        </p>
-      )}
+      {intro && <p className="mt-4 text-base leading-relaxed text-muted-foreground">{intro}</p>}
     </div>
   );
 }

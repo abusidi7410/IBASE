@@ -43,7 +43,7 @@ export function ServiceGrid({ limit }: { limit?: number }) {
             <h3 className="mt-5 flex items-start justify-between gap-3 text-base font-semibold text-foreground">
               {service.title}
               <ArrowUpRight
-                className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden="true"
               />
             </h3>

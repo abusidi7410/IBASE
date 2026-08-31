@@ -12,8 +12,7 @@ import { TechStack } from "@/components/site/TechStack";
 import { CTA } from "@/components/site/CTA";
 import { company } from "@/content/site";
 
-const title =
-  "Tech One-Stop Solution Ltd | ICT & Technology Solutions in Nigeria";
+const title = "Tech One-Stop Solution Ltd | ICT & Technology Solutions in Nigeria";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,19 +38,17 @@ function Home() {
           <div className="reveal">
             <p className="eyebrow">Tech One-Stop Solution Ltd</p>
             <h1 className="mt-5 text-3xl font-semibold leading-[1.15] text-foreground sm:text-4xl lg:text-[2.9rem]">
-              Technology solutions that keep your business connected, secure and
-              moving forward.
+              Technology solutions that keep your business connected, secure and moving forward.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-              TOSS delivers reliable ICT, networking, connectivity,
-              cybersecurity, software, cloud and infrastructure solutions for
-              organizations across Nigeria.
+              TOSS delivers reliable ICT, networking, connectivity, cybersecurity, software, cloud
+              and infrastructure solutions for organizations across Nigeria.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/contact"
                 hash="quote"
-                className="inline-flex h-12 items-center rounded-sm bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                className="inline-flex h-12 items-center rounded-sm bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
               >
                 Request a Quote
               </Link>
@@ -86,16 +83,15 @@ function Home() {
               Technology built around your business.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Tech One-Stop Solution Ltd has operated since 2020 as a Nigerian
-              ICT company providing innovative and future-ready technology
-              solutions. We design, implement and support the systems
-              organizations rely on every day — connectivity, networks, cloud,
-              security, software and power.
+              Tech One-Stop Solution Ltd has operated since 2020 as a Nigerian ICT company providing
+              innovative and future-ready technology solutions. We design, implement and support the
+              systems organizations rely on every day — connectivity, networks, cloud, security,
+              software and power.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Every engagement is shaped around the realities of the Nigerian
-              market: practical infrastructure choices, dependable support and
-              solutions that can scale as an organization grows.
+              Every engagement is shaped around the realities of the Nigerian market: practical
+              infrastructure choices, dependable support and solutions that can scale as an
+              organization grows.
             </p>
             <p className="mt-8 border-t border-border pt-6 text-sm font-semibold tracking-[0.16em] text-primary">
               EST. 2020
@@ -103,7 +99,7 @@ function Home() {
           </div>
           <img
             src={engineersImage}
-            alt="Network engineers patching cables in an office server rack"
+            alt="Server racks and network cabling in a data center environment"
             width={1280}
             height={960}
             loading="lazy"
@@ -173,10 +169,7 @@ function Home() {
 
       {/* Technology */}
       <section className="container-page py-20 lg:py-24">
-        <SectionHeader
-          eyebrow="Capabilities"
-          title="Technology & Infrastructure"
-        />
+        <SectionHeader eyebrow="Capabilities" title="Technology & Infrastructure" />
         <TechStack />
       </section>
 

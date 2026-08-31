@@ -39,19 +39,39 @@ export function ContactForm() {
           <label htmlFor="name" className="text-sm font-medium text-foreground">
             Full Name
           </label>
-          <input id="name" name="name" type="text" required autoComplete="name" className={fieldClass} />
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            className={fieldClass}
+          />
         </div>
         <div>
           <label htmlFor="company" className="text-sm font-medium text-foreground">
             Company
           </label>
-          <input id="company" name="company" type="text" autoComplete="organization" className={fieldClass} />
+          <input
+            id="company"
+            name="company"
+            type="text"
+            autoComplete="organization"
+            className={fieldClass}
+          />
         </div>
         <div>
           <label htmlFor="email" className="text-sm font-medium text-foreground">
             Email
           </label>
-          <input id="email" name="email" type="email" required autoComplete="email" className={fieldClass} />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            className={fieldClass}
+          />
         </div>
         <div>
           <label htmlFor="phone" className="text-sm font-medium text-foreground">
@@ -89,7 +109,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="mt-6 inline-flex h-12 items-center rounded-sm bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        className="mt-6 inline-flex h-12 items-center rounded-sm bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
       >
         Send Inquiry
       </button>
