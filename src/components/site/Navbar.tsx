@@ -4,9 +4,12 @@ import { useEffect, useState, useRef } from "react";
 import { Logo } from "./Logo";
 import { services } from "@/content/site";
 
-const navLinks = [
+const navLinksBefore = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+] as const;
+
+const navLinksAfter = [
   { to: "/solutions", label: "Solutions" },
   { to: "/projects", label: "Projects" },
   { to: "/contact", label: "Contact" },
@@ -41,8 +44,7 @@ export function Navbar() {
     timeoutRef.current = setTimeout(() => setServicesOpen(false), 150);
   }
 
-  const isServicesActive =
-    location.pathname.startsWith("/services");
+  const isServicesActive = location.pathname.startsWith("/services");
 
   return (
     <header
@@ -60,7 +62,7 @@ export function Navbar() {
         <Logo />
 
         <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((l) => (
+          {navLinksBefore.map((l) => (
             <Link
               key={l.to}
               to={l.to}
@@ -120,6 +122,20 @@ export function Navbar() {
               </div>
             )}
           </div>
+
+          {navLinksAfter.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className="relative text-sm text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{
+                className:
+                  "text-foreground font-medium after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-full after:bg-primary",
+              }}
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden lg:block">
@@ -147,19 +163,49 @@ export function Navbar() {
       {open && (
         <div id="mobile-menu" className="border-t bg-background lg:hidden">
           <nav aria-label="Mobile" className="container-page flex flex-col py-2">
-            {navLinks.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-4 text-base text-foreground last:border-0"
-                activeProps={{ className: "text-primary font-medium" }}
-              >
-                {l.label}
-              </Link>
-            ))}
+            <Link
+              to="/"
+              onClick={() => setOpen(false)}
+              className="border-b border-border/60 py-4 text-base text-foreground"
+              activeProps={{ className: "text-primary font-medium" }}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              onClick={() => setOpen(false)}
+              className="border-b border-border/60 py-4 text-base text-foreground"
+              activeProps={{ className: "text-primary font-medium" }}
+            >
+              About
+            </Link>
 
             <MobileServicesSection onClose={() => setOpen(false)} />
+
+            <Link
+              to="/solutions"
+              onClick={() => setOpen(false)}
+              className="border-b border-border/60 py-4 text-base text-foreground"
+              activeProps={{ className: "text-primary font-medium" }}
+            >
+              Solutions
+            </Link>
+            <Link
+              to="/projects"
+              onClick={() => setOpen(false)}
+              className="border-b border-border/60 py-4 text-base text-foreground"
+              activeProps={{ className: "text-primary font-medium" }}
+            >
+              Projects
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setOpen(false)}
+              className="border-b border-border/60 py-4 text-base text-foreground last:border-0"
+              activeProps={{ className: "text-primary font-medium" }}
+            >
+              Contact
+            </Link>
 
             <Link
               to="/contact"

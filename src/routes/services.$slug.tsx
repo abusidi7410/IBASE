@@ -39,43 +39,43 @@ const iconMap: Record<string, LucideIcon> = {
 const serviceImages: Record<string, { src: string; alt: string }> = {
   "internet-services": {
     src: heroImage,
-    alt: "Structured fiber optic cabling in an enterprise data center",
+    alt: "Fiber optic connectivity infrastructure in a data center",
   },
   "wireless-services": {
     src: towerImage,
-    alt: "Telecommunications infrastructure with wireless equipment",
+    alt: "Telecommunications tower with wireless transmission equipment",
   },
   "cloud-computing": {
-    src: heroImage,
-    alt: "Enterprise server infrastructure and cloud computing systems",
+    src: engineersImage,
+    alt: "Cloud server infrastructure and data center racks",
   },
   "network-design": {
     src: engineersImage,
-    alt: "Server racks and network cabling in a data center environment",
+    alt: "Network cabling and server rack infrastructure",
   },
   "voip-telecom": {
     src: towerImage,
-    alt: "Professional telecommunications infrastructure",
+    alt: "Telecommunications tower with microwave dishes and cable infrastructure",
   },
   "software-development": {
-    src: engineersImage,
-    alt: "Technology workspace and digital infrastructure",
+    src: heroImage,
+    alt: "Data center infrastructure supporting software systems",
   },
   cybersecurity: {
     src: heroImage,
-    alt: "Network security infrastructure and monitoring systems",
+    alt: "Secured data center with controlled access infrastructure",
   },
   "cctv-surveillance": {
     src: engineersImage,
-    alt: "Professional surveillance and monitoring infrastructure",
+    alt: "Server room with monitoring and surveillance control systems",
   },
   "renewable-energy": {
     src: solarImage,
-    alt: "Solar panel installation with inverters and battery storage",
+    alt: "Rooftop solar panel array with wall-mounted inverters",
   },
   "it-consultancy": {
     src: engineersImage,
-    alt: "Professional technology consultation and infrastructure planning",
+    alt: "Enterprise server and network infrastructure",
   },
 };
 

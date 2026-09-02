@@ -4,6 +4,7 @@ import { company, services } from "@/content/site";
 const companyLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
   { to: "/solutions", label: "Solutions" },
   { to: "/projects", label: "Projects" },
   { to: "/contact", label: "Contact" },
