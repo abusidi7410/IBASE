@@ -21,7 +21,15 @@ import type { ServiceSlug } from "@/content/site";
 import heroImage from "@/assets/hero-infrastructure.jpg";
 import engineersImage from "@/assets/engineers-network.jpg";
 import solarImage from "@/assets/solar-installation.jpg";
-import towerImage from "@/assets/telecom-tower.jpg";
+import internetImage from "@/assets/internet service.png";
+import wirelessImage from "@/assets/wireless service.png";
+import cloudImage from "@/assets/cloud computing.png";
+import networkImage from "@/assets/network desing and implementation.png";
+import voipImage from "@/assets/voice over internet.png";
+import softwareImage from "@/assets/software development.png";
+import cyberImage from "@/assets/cyber security (2).png";
+import cctvImage from "@/assets/camera.png";
+import consultancyImage from "@/assets/consultation.png";
 
 const iconMap: Record<string, LucideIcon> = {
   Globe,
@@ -38,44 +46,44 @@ const iconMap: Record<string, LucideIcon> = {
 
 const serviceImages: Record<string, { src: string; alt: string }> = {
   "internet-services": {
-    src: heroImage,
-    alt: "Fiber optic connectivity infrastructure in a data center",
+    src: internetImage,
+    alt: "Internet services — fiber optic, microwave and VSAT connectivity",
   },
   "wireless-services": {
-    src: towerImage,
-    alt: "Telecommunications tower with wireless transmission equipment",
+    src: wirelessImage,
+    alt: "Wireless services — Wi-Fi, long-distance links and mesh networks",
   },
   "cloud-computing": {
-    src: engineersImage,
-    alt: "Cloud server infrastructure and data center racks",
+    src: cloudImage,
+    alt: "Cloud computing — Google Cloud, Microsoft Azure and Amazon AWS",
   },
   "network-design": {
-    src: engineersImage,
-    alt: "Network cabling and server rack infrastructure",
+    src: networkImage,
+    alt: "Network design and implementation — LAN/WAN, data center, fiber optics",
   },
   "voip-telecom": {
-    src: towerImage,
-    alt: "Telecommunications tower with microwave dishes and cable infrastructure",
+    src: voipImage,
+    alt: "VoIP and telecom solutions — voice, data and video communication",
   },
   "software-development": {
-    src: heroImage,
-    alt: "Data center infrastructure supporting software systems",
+    src: softwareImage,
+    alt: "Software development — custom applications and business automation",
   },
   cybersecurity: {
-    src: heroImage,
-    alt: "Secured data center with controlled access infrastructure",
+    src: cyberImage,
+    alt: "Cybersecurity — firewalls, IDS, VPN and penetration testing",
   },
   "cctv-surveillance": {
-    src: engineersImage,
-    alt: "Server room with monitoring and surveillance control systems",
+    src: cctvImage,
+    alt: "CCTV surveillance — IP and analog systems with remote monitoring",
   },
   "renewable-energy": {
     src: solarImage,
-    alt: "Rooftop solar panel array with wall-mounted inverters",
+    alt: "Renewable energy — solar panels, inverters and battery storage",
   },
   "it-consultancy": {
-    src: engineersImage,
-    alt: "Enterprise server and network infrastructure",
+    src: consultancyImage,
+    alt: "IT consultancy — strategy, planning, training and support",
   },
 };
 
