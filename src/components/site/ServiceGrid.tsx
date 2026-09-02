@@ -1,5 +1,6 @@
+import { Link } from "@tanstack/react-router";
 import {
-  ArrowUpRight,
+  ArrowRight,
   Cctv,
   Cloud,
   Code2,
@@ -39,17 +40,23 @@ export function ServiceGrid({ limit }: { limit?: number }) {
             key={service.slug}
             className="group border-b border-r border-border bg-surface p-7 transition-colors hover:bg-secondary sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
           >
-            <Icon className="size-5 text-primary" aria-hidden="true" strokeWidth={1.5} />
-            <h3 className="mt-5 flex items-start justify-between gap-3 text-base font-semibold text-foreground">
-              {service.title}
-              <ArrowUpRight
-                className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                aria-hidden="true"
-              />
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {service.description}
-            </p>
+            <Link
+              to="/services/$slug"
+              params={{ slug: service.slug }}
+              className="block"
+            >
+              <Icon className="size-5 text-primary" aria-hidden="true" strokeWidth={1.5} />
+              <h3 className="mt-5 flex items-start justify-between gap-3 text-base font-semibold text-foreground">
+                {service.title}
+                <ArrowRight
+                  className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {service.description}
+              </p>
+            </Link>
           </li>
         );
       })}

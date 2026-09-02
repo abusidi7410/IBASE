@@ -1,16 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  ArrowRight,
+  Cctv,
+  Cloud,
+  Code2,
+  Compass,
+  Globe,
+  Network,
+  PhoneCall,
+  ShieldCheck,
+  SunMedium,
+  Wifi,
+  type LucideIcon,
+} from "lucide-react";
 import heroImage from "@/assets/hero-infrastructure.jpg";
 import engineersImage from "@/assets/engineers-network.jpg";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { ServiceGrid } from "@/components/site/ServiceGrid";
 import { Capabilities } from "@/components/site/Capabilities";
 import { SolutionsList } from "@/components/site/SolutionsList";
 import { ProjectsList } from "@/components/site/ProjectsList";
 import { Industries } from "@/components/site/Industries";
 import { WhyToss } from "@/components/site/WhyToss";
-import { TechStack } from "@/components/site/TechStack";
 import { CTA } from "@/components/site/CTA";
-import { company } from "@/content/site";
+import { company, services } from "@/content/site";
 
 const title = "Tech One-Stop Solution Ltd | ICT & Technology Solutions in Nigeria";
 
@@ -29,14 +41,17 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const iconMap: Record<string, LucideIcon> = {
+  Globe, Wifi, Cloud, Network, PhoneCall, Code2, ShieldCheck, Cctv, SunMedium, Compass,
+};
+
 function Home() {
   return (
     <>
-      {/* Hero */}
       <section className="border-b border-border bg-surface">
         <div className="container-page grid items-center gap-12 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
           <div className="reveal">
-            <p className="eyebrow">Tech One-Stop Solution Ltd</p>
+            <p className="eyebrow">{company.name}</p>
             <h1 className="mt-5 text-3xl font-semibold leading-[1.15] text-foreground sm:text-4xl lg:text-[2.9rem]">
               Technology solutions that keep your business connected, secure and moving forward.
             </h1>
@@ -60,7 +75,6 @@ function Home() {
               </Link>
             </div>
           </div>
-
           <div className="relative">
             <img
               src={heroImage}
@@ -74,7 +88,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Who we are */}
       <section className="container-page py-20 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -83,15 +96,16 @@ function Home() {
               Technology built around your business.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Tech One-Stop Solution Ltd has operated since 2020 as a Nigerian ICT company providing
-              innovative and future-ready technology solutions. We design, implement and support the
-              systems organizations rely on every day — connectivity, networks, cloud, security,
-              software and power.
+              Tech One-Stop Solution Ltd is a Nigerian ICT solutions company
+              established in 2020, providing innovative and future-ready
+              technology solutions. We design, implement and support the systems
+              organizations rely on every day — connectivity, networks, cloud,
+              security, software and power.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Every engagement is shaped around the realities of the Nigerian market: practical
-              infrastructure choices, dependable support and solutions that can scale as an
-              organization grows.
+              Every engagement is shaped around the realities of the Nigerian
+              market: practical infrastructure choices, dependable support and
+              solutions that can scale as an organization grows.
             </p>
             <p className="mt-8 border-t border-border pt-6 text-sm font-semibold tracking-[0.16em] text-primary">
               EST. 2020
@@ -108,7 +122,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Services */}
       <section className="bg-surface py-20 lg:py-24">
         <div className="container-page">
           <SectionHeader
@@ -116,9 +129,28 @@ function Home() {
             title="Our Technology Services"
             intro="End-to-end technology solutions designed to connect, secure and transform modern organizations."
           />
-          <div className="mt-12">
-            <ServiceGrid limit={6} />
-          </div>
+          <ul className="mt-12 grid grid-cols-1 border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+            {services.slice(0, 6).map((service) => {
+              const Icon = iconMap[service.icon] ?? Globe;
+              return (
+                <li
+                  key={service.slug}
+                  className="group border-b border-r border-border bg-background p-7 transition-colors hover:bg-secondary sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
+                >
+                  <Link to="/services/$slug" params={{ slug: service.slug }} className="block">
+                    <Icon className="size-5 text-primary" aria-hidden="true" strokeWidth={1.5} />
+                    <h3 className="mt-5 flex items-start justify-between gap-3 text-base font-semibold text-foreground">
+                      {service.title}
+                      <ArrowRight className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary group-hover:translate-x-0.5" aria-hidden="true" />
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
           <Link
             to="/services"
             className="mt-8 inline-flex items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
@@ -128,10 +160,8 @@ function Home() {
         </div>
       </section>
 
-      {/* Capabilities */}
       <Capabilities />
 
-      {/* Solutions */}
       <section className="container-page py-20 lg:py-24">
         <SectionHeader
           eyebrow="Solutions"
@@ -141,7 +171,6 @@ function Home() {
         <SolutionsList />
       </section>
 
-      {/* Projects */}
       <section className="bg-surface py-20 lg:py-24">
         <div className="container-page">
           <SectionHeader
@@ -153,24 +182,16 @@ function Home() {
         </div>
       </section>
 
-      {/* Why TOSS */}
       <section className="container-page py-20 lg:py-24">
         <SectionHeader eyebrow="Why TOSS" title="Why organizations choose TOSS" />
         <WhyToss />
       </section>
 
-      {/* Industries */}
       <section className="bg-surface py-20 lg:py-24">
         <div className="container-page">
           <SectionHeader eyebrow="Industries" title="Industries we serve" />
           <Industries />
         </div>
-      </section>
-
-      {/* Technology */}
-      <section className="container-page py-20 lg:py-24">
-        <SectionHeader eyebrow="Capabilities" title="Technology & Infrastructure" />
-        <TechStack />
       </section>
 
       <CTA />

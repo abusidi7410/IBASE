@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
+  const src = tone === "light" ? "/logo-white.svg" : "/logo.svg";
   return (
     <Link
       to="/"
@@ -8,7 +9,7 @@ export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
       aria-label="Tech One-Stop Solution Ltd — home"
     >
       <img
-        src="/logo.jpeg"
+        src={src}
         alt="Tech One-Stop Solution Ltd"
         className="h-8 w-auto"
       />

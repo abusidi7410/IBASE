@@ -1,31 +1,20 @@
 import { Link } from "@tanstack/react-router";
-import { company } from "@/content/site";
+import { company, services } from "@/content/site";
 
 const companyLinks = [
+  { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
   { to: "/solutions", label: "Solutions" },
   { to: "/projects", label: "Projects" },
   { to: "/contact", label: "Contact" },
 ] as const;
-
-const serviceLinks = [
-  "Internet",
-  "Networking",
-  "Cloud",
-  "Cybersecurity",
-  "Software",
-  "CCTV",
-  "Renewable Energy",
-  "Consultancy",
-];
 
 export function Footer() {
   return (
     <footer className="bg-charcoal text-charcoal-foreground">
       <div className="container-page grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="max-w-sm">
-          <img src="/logo.jpeg" alt="Tech One-Stop Solution Ltd" className="h-10 w-auto" />
+          <img src="/logo-white.svg" alt="Tech One-Stop Solution Ltd" className="h-10 w-auto" />
           <p className="mt-4 text-sm leading-relaxed text-charcoal-foreground/70">
             {company.name} provides innovative and future-ready ICT solutions in Nigeria —
             connectivity, networking, cloud, cybersecurity, software, surveillance, renewable energy
@@ -54,10 +43,14 @@ export function Footer() {
         <div>
           <h2 className="eyebrow text-charcoal-foreground/50">Services</h2>
           <ul className="mt-5 space-y-3 text-sm text-charcoal-foreground/80">
-            {serviceLinks.map((s) => (
-              <li key={s}>
-                <Link to="/services" className="transition-colors hover:text-primary">
-                  {s}
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  to="/services/$slug"
+                  params={{ slug: s.slug }}
+                  className="transition-colors hover:text-primary"
+                >
+                  {s.title}
                 </Link>
               </li>
             ))}

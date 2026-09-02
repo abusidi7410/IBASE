@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 48" fill="none">
+  <path d="M14 8L28 24L14 40" stroke="#D68112" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 8L38 24L24 40" stroke="#D68112" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="50" y="34" font-family="Inter,system-ui,sans-serif" font-size="28" font-weight="700" fill="#F7F7F2" letter-spacing="0.5">TOSS</text>
+</svg>
