@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImage from "@/assets/hero-infrastructure.jpg";
+import heroImage from "@/assets/A network server with multiple ethernet cables 65611207 Stock Photo at Vecteezy and 8 more pages - Personal - Microsoft_ Edge 9_3_2026 1_30_34 PM-ezremove.png";
 import engineersImage from "@/assets/engineers-network.jpg";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Reveal } from "@/components/site/Reveal";
@@ -73,9 +73,9 @@ function Home() {
           <div className="relative overflow-hidden animate-hero-image" style={{ animationDelay: "120ms" }}>
             <img
               src={heroImage}
-              alt="Structured fiber optic cabling in an enterprise data center"
-              width={1280}
-              height={1440}
+              alt="Enterprise network server with multiple ethernet cable connections"
+              width={1296}
+              height={760}
               fetchPriority="high"
               className="h-[340px] w-full object-cover transition-transform duration-[1400ms] ease-out hover:scale-[1.03] sm:h-[440px] lg:h-[520px]"
             />
