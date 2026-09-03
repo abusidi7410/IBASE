@@ -3,10 +3,11 @@ import towerImage from "@/assets/telecom-tower.jpg";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ProjectsList } from "@/components/site/ProjectsList";
 import { CTA } from "@/components/site/CTA";
+import { siteUrl } from "@/content/seo";
 
-const title = "Selected Projects | Tech One-Stop Solution Ltd";
+const title = "Projects & Delivery | TOSS in Nigeria";
 const description =
-  "Projects delivered by TOSS across healthcare, government and education, including network equipment supply and the equipping of digital learning centers in Nigeria.";
+  "Technology projects delivered by Tech One-Stop Solution Ltd across healthcare, government and education in Nigeria — network equipment supply and equipping digital learning centers.";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -16,9 +17,11 @@ export const Route = createFileRoute("/projects")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/projects" },
+      { property: "og:url", content: siteUrl("/projects") },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/projects" }],
+    links: [{ rel: "canonical", href: siteUrl("/projects") }],
   }),
   component: Projects,
 });

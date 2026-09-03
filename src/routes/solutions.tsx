@@ -3,10 +3,11 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { SolutionsList } from "@/components/site/SolutionsList";
 import { Industries } from "@/components/site/Industries";
 import { CTA } from "@/components/site/CTA";
+import { siteUrl } from "@/content/seo";
 
-const title = "Solutions | Tech One-Stop Solution Ltd";
+const title = "Software & Platform Solutions | TOSS in Nigeria";
 const description =
-  "TOSS software and platform solutions: Global-Care hospital management, Bank-Well microfinance banking, X-Global ERP, HR & Payroll, cloud and web hosting, and biometric solutions.";
+  "Explore Tech One-Stop Solution Ltd software and platform solutions — Global-Care hospital management, Bank-Well microfinance banking, X-Global ERP, HR & Payroll, cloud and web hosting and biometric solutions.";
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({
@@ -16,9 +17,11 @@ export const Route = createFileRoute("/solutions")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/solutions" },
+      { property: "og:url", content: siteUrl("/solutions") },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/solutions" }],
+    links: [{ rel: "canonical", href: siteUrl("/solutions") }],
   }),
   component: Solutions,
 });

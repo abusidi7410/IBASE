@@ -2,10 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ContactForm } from "@/components/site/ContactForm";
 import { company } from "@/content/site";
+import { siteUrl } from "@/content/seo";
 
-const title = "Contact TOSS | ICT Solutions in Kaduna, Nigeria";
+const title = "Contact Tech One-Stop Solution Ltd | Kaduna, Nigeria";
 const description =
-  "Contact Tech One-Stop Solution Ltd in Kaduna, Nigeria to discuss networking, connectivity, cybersecurity, cloud, software, CCTV or renewable energy projects.";
+  "Contact Tech One-Stop Solution Ltd in Kaduna, Nigeria to discuss networking, connectivity, cybersecurity, cloud, software, CCTV or renewable energy projects for your organization.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -15,9 +16,11 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: siteUrl("/contact") },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: siteUrl("/contact") }],
   }),
   component: Contact,
 });

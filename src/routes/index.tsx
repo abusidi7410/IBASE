@@ -11,20 +11,26 @@ import { Industries } from "@/components/site/Industries";
 import { WhyToss } from "@/components/site/WhyToss";
 import { CTA } from "@/components/site/CTA";
 import { company } from "@/content/site";
+import { siteUrl } from "@/content/seo";
 
-const title = "Tech One-Stop Solution Ltd | ICT & Technology Solutions in Nigeria";
+const title =
+  "Tech One-Stop Solution Ltd | ICT & Networking Solutions in Kaduna, Nigeria";
+const description =
+  "Tech One-Stop Solution Ltd is an ICT and networking company in Kaduna, Nigeria providing connectivity, internet, wireless, cloud, cybersecurity, CCTV, VoIP, software and network installation services across Nigeria.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title },
-      { name: "description", content: company.description },
+      { name: "description", content: description },
       { property: "og:title", content: title },
-      { property: "og:description", content: company.description },
+      { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: siteUrl("/") },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: siteUrl("/") }],
   }),
   component: Home,
 });
@@ -92,8 +98,9 @@ function Home() {
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
               Tech One-Stop Solution Ltd is a Nigerian ICT solutions company
-              established in 2020, providing innovative and future-ready
-              technology solutions. We design, implement and support the systems
+              based in Kaduna and established in 2020, providing innovative and
+              future-ready technology solutions to organizations across the
+              country. We design, implement and support the systems
               organizations rely on every day — connectivity, networks, cloud,
               security, software and power.
             </p>

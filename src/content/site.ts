@@ -7,7 +7,7 @@ export const company = {
   phone: "+234 803 284 6128",
   phoneHref: "+2348032846128",
   email: "info@toss.ng",
-  website: "www.toss.ng",
+  website: "toss.ng",
   description:
     "Tech One-Stop Solution Ltd provides innovative ICT, networking, cloud, cybersecurity, software, connectivity, CCTV, renewable energy and technology solutions across Nigeria.",
 };

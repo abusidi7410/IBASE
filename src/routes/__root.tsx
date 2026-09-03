@@ -12,6 +12,7 @@ import appCss from "../styles.css?url";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { company } from "@/content/site";
+import { SITE_URL, siteUrl } from "@/content/seo";
 
 function NotFoundComponent() {
   return (
@@ -82,7 +83,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: company.name },
       { property: "og:site_name", content: company.name },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: siteUrl("/og-image.png") },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: company.name },
+      { name: "twitter:description", content: company.description },
+      { name: "twitter:image", content: siteUrl("/og-image.png") },
       { name: "theme-color", content: "#D68112" },
     ],
     links: [
@@ -124,9 +129,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
           name: company.name,
           alternateName: "TOSS",
-          url: "https://www.toss.ng",
+          url: SITE_URL,
+          logo: siteUrl("/logo.svg"),
           foundingDate: "2020",
           description: company.description,
           address: {
@@ -135,12 +142,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             addressLocality: "Kaduna",
             addressCountry: "NG",
           },
-          contactPoint: {
-            "@type": "ContactPoint",
-            telephone: company.phone,
-            email: company.email,
-            contactType: "sales",
-          },
+          areaServed: { "@type": "Country", name: "Nigeria" },
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              telephone: "+2348032846128",
+              email: "info@toss.ng",
+              contactType: "sales",
+              areaServed: "NG",
+              availableLanguage: "en",
+            },
+          ],
         }),
       },
     ],

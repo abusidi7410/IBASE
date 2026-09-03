@@ -4,16 +4,25 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { ServiceGrid } from "@/components/site/ServiceGrid";
 import { Capabilities } from "@/components/site/Capabilities";
 import { TechStack } from "@/components/site/TechStack";
+import { siteUrl } from "@/content/seo";
+
+const title = "ICT & Networking Services in Kaduna | TOSS";
+const description =
+  "Explore Tech One-Stop Solution Ltd services: internet, wireless, cloud computing, network design, VoIP, software development, cybersecurity, CCTV, renewable energy and IT consultancy in Kaduna and across Nigeria.";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      {
-        title: "Technology Services | Tech One-Stop Solution Ltd",
-        property: "og:title",
-        content: "Technology Services | Tech One-Stop Solution Ltd",
-      },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: siteUrl("/services") },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
+    links: [{ rel: "canonical", href: siteUrl("/services") }],
   }),
   component: ServicesIndex,
 });

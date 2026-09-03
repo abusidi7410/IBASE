@@ -5,10 +5,11 @@ import { MissionVision } from "@/components/site/MissionVision";
 import { Industries } from "@/components/site/Industries";
 import { CTA } from "@/components/site/CTA";
 import { company, technologies } from "@/content/site";
+import { siteUrl } from "@/content/seo";
 
-const title = "About TOSS | Nigerian ICT Solutions Company";
+const title = "About Tech One-Stop Solution Ltd | ICT Company in Kaduna";
 const description =
-  "Established in 2020, Tech One-Stop Solution Ltd is a Nigerian ICT company delivering networking, cybersecurity, cloud, software, telecom, CCTV, renewable energy and consultancy solutions.";
+  "Tech One-Stop Solution Ltd is a Nigerian ICT company in Kaduna, providing networking, internet, cybersecurity, cloud, software, telecom, CCTV, renewable energy and consultancy solutions to organizations across Nigeria since 2020.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -18,9 +19,11 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: siteUrl("/about") },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: siteUrl("/about") }],
   }),
   component: About,
 });
@@ -85,11 +88,11 @@ function About() {
     <>
       <section className="border-b border-border bg-surface py-16 lg:py-20">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <SectionHeader
+            <SectionHeader
             as="h1"
             eyebrow="About TOSS"
             title="A technology partner focused on what's next."
-            intro="Tech One-Stop Solution Ltd is a Nigerian ICT solutions company established in 2020, supporting organizations through digital transformation with practical, future-ready technology."
+            intro="Tech One-Stop Solution Ltd is a Nigerian ICT solutions company based in Kaduna and established in 2020, supporting organizations across the country through digital transformation with practical, future-ready technology."
           />
           <img
             src={engineersImage}
@@ -113,7 +116,7 @@ function About() {
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground lg:col-span-8">
             <p>
               Tech One-Stop Solution Ltd ({company.short}) is a Nigerian ICT
-              solutions company established in {company.established}. We provide
+              solutions company based in Kaduna and established in {company.established}. We provide
               innovative and future-ready technology solutions to organizations
               across Nigeria — serving government institutions, healthcare
               facilities, educational establishments, banking and financial

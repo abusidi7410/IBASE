@@ -1,9 +1,9 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { CTA } from "@/components/site/CTA";
 
-const title = "Technology Services | Tech One-Stop Solution Ltd";
+const title = "ICT & Networking Services in Kaduna | TOSS";
 const description =
-  "Internet and wireless connectivity, cloud computing, network design, VoIP, software development, cybersecurity, CCTV, renewable energy and IT consultancy services from TOSS.";
+  "Explore Tech One-Stop Solution Ltd services: internet, wireless, cloud computing, network design, VoIP, software development, cybersecurity, CCTV, renewable energy and IT consultancy in Kaduna and across Nigeria.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -13,9 +13,9 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/services" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
   }),
   component: ServicesLayout,
 });
