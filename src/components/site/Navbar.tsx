@@ -48,8 +48,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-background/95 backdrop-blur-[2px] transition-shadow ${
-        scrolled ? "shadow-[0_1px_3px_rgba(32,37,34,0.08)]" : ""
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? "glass shadow-[0_2px_12px_rgba(32,37,34,0.06)]"
+          : "border-b bg-background/95 backdrop-blur-[2px]"
       }`}
     >
       <a

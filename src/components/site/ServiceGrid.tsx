@@ -38,8 +38,9 @@ export function ServiceGrid({ limit }: { limit?: number }) {
         return (
           <li
             key={service.slug}
-            className="group border-b border-r border-border bg-surface p-7 transition-colors hover:bg-secondary sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
+            className="group relative border-b border-r border-border bg-surface p-7 transition-all duration-300 hover:bg-white/40 hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
           >
+            <div className="pointer-events-none absolute inset-0 rounded-none border border-transparent transition-all duration-300 group-hover:border-white/40 group-hover:backdrop-blur-[6px] [-webkit-backdrop-filter:blur(6px)]" />
             <Link
               to="/services/$slug"
               params={{ slug: service.slug }}

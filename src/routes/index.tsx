@@ -84,6 +84,22 @@ function Home() {
               fetchPriority="high"
               className="h-[340px] w-full object-cover sm:h-[440px] lg:h-[520px]"
             />
+            <div className="glass absolute -bottom-5 -left-4 z-10 rounded-sm px-5 py-3 shadow-[0_2px_8px_rgba(0,0,0,0.06)] glass-enter sm:-left-6 sm:px-6 sm:py-4">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                Est. 2020
+              </p>
+              <p className="mt-1 text-xs font-medium text-foreground/80">
+                Kaduna, Nigeria
+              </p>
+            </div>
+            <div className="glass absolute -right-3 top-6 z-10 rounded-sm px-4 py-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.06)] glass-enter-delayed sm:-right-5 sm:px-5 sm:py-3">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-primary">
+                ICT Solutions
+              </p>
+              <p className="mt-0.5 text-[0.7rem] text-foreground/70">
+                Across Nigeria
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -135,8 +151,9 @@ function Home() {
               return (
                 <li
                   key={service.slug}
-                  className="group border-b border-r border-border bg-background p-7 transition-colors hover:bg-secondary sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
+                  className="group relative border-b border-r border-border bg-background p-7 transition-all duration-300 hover:bg-white/40 hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
                 >
+                  <div className="pointer-events-none absolute inset-0 border border-transparent transition-all duration-300 group-hover:border-white/40 group-hover:backdrop-blur-[6px] [-webkit-backdrop-filter:blur(6px)]" />
                   <Link to="/services/$slug" params={{ slug: service.slug }} className="block">
                     <Icon className="size-5 text-primary" aria-hidden="true" strokeWidth={1.5} />
                     <h3 className="mt-5 flex items-start justify-between gap-3 text-base font-semibold text-foreground">
