@@ -14,22 +14,11 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SectionHeader } from "@/components/site/SectionHeader";
+import { Reveal } from "@/components/site/Reveal";
 import { Capabilities } from "@/components/site/Capabilities";
 import { services, getServiceBySlug } from "@/content/site";
+import { serviceImages } from "@/content/service-images";
 import type { ServiceSlug } from "@/content/site";
-
-import heroImage from "@/assets/hero-infrastructure.jpg";
-import engineersImage from "@/assets/engineers-network.jpg";
-import solarImage from "@/assets/solar-installation.jpg";
-import internetImage from "@/assets/internet service.png";
-import wirelessImage from "@/assets/wireless service.png";
-import cloudImage from "@/assets/cloud computing.png";
-import networkImage from "@/assets/network desing and implementation.png";
-import voipImage from "@/assets/voice over internet.png";
-import softwareImage from "@/assets/software development.png";
-import cyberImage from "@/assets/cyber security (2).png";
-import cctvImage from "@/assets/camera.png";
-import consultancyImage from "@/assets/consultation.png";
 
 const iconMap: Record<string, LucideIcon> = {
   Globe,
@@ -42,49 +31,6 @@ const iconMap: Record<string, LucideIcon> = {
   Cctv,
   SunMedium,
   Compass,
-};
-
-const serviceImages: Record<string, { src: string; alt: string }> = {
-  "internet-services": {
-    src: internetImage,
-    alt: "Internet services — fiber optic, microwave and VSAT connectivity",
-  },
-  "wireless-services": {
-    src: wirelessImage,
-    alt: "Wireless services — Wi-Fi, long-distance links and mesh networks",
-  },
-  "cloud-computing": {
-    src: cloudImage,
-    alt: "Cloud computing — Google Cloud, Microsoft Azure and Amazon AWS",
-  },
-  "network-design": {
-    src: networkImage,
-    alt: "Network design and implementation — LAN/WAN, data center, fiber optics",
-  },
-  "voip-telecom": {
-    src: voipImage,
-    alt: "VoIP and telecom solutions — voice, data and video communication",
-  },
-  "software-development": {
-    src: softwareImage,
-    alt: "Software development — custom applications and business automation",
-  },
-  cybersecurity: {
-    src: cyberImage,
-    alt: "Cybersecurity — firewalls, IDS, VPN and penetration testing",
-  },
-  "cctv-surveillance": {
-    src: cctvImage,
-    alt: "CCTV surveillance — IP and analog systems with remote monitoring",
-  },
-  "renewable-energy": {
-    src: solarImage,
-    alt: "Renewable energy — solar panels, inverters and battery storage",
-  },
-  "it-consultancy": {
-    src: consultancyImage,
-    alt: "IT consultancy — strategy, planning, training and support",
-  },
 };
 
 export const Route = createFileRoute("/services/$slug")({
@@ -150,74 +96,161 @@ function ServiceDetail() {
       <section className="border-b border-border bg-surface py-16 lg:py-20">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="eyebrow">Services</p>
-            <h1 className="mt-4 text-3xl font-semibold text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            <p className="eyebrow animate-hero" style={{ animationDelay: "0ms" }}>
+              Services
+            </p>
+            <h1
+              className="mt-4 animate-hero text-3xl font-semibold text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]"
+              style={{ animationDelay: "80ms" }}
+            >
               {service.title}
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+            <p
+              className="mt-6 max-w-xl animate-hero text-base leading-relaxed text-muted-foreground"
+              style={{ animationDelay: "160ms" }}
+            >
               {service.intro}
             </p>
-            <div className="mt-8">
+            <div className="mt-8 animate-hero" style={{ animationDelay: "240ms" }}>
               <Link
                 to="/contact"
                 hash="quote"
-                className="inline-flex h-12 items-center rounded-sm bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+                className="inline-flex h-12 items-center rounded-sm bg-primary px-6 text-sm font-medium text-primary-foreground transition-all hover:bg-primary-hover hover:shadow-[0_4px_12px_rgba(214,129,18,0.25)]"
               >
                 Request a Quote
               </Link>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative overflow-hidden animate-hero-image" style={{ animationDelay: "120ms" }}>
             <img
               src={image?.src}
               alt={image?.alt}
               width={1280}
               height={960}
               loading="lazy"
-              className="h-[300px] w-full object-cover sm:h-[380px] lg:h-[440px]"
+              className="h-[300px] w-full object-cover transition-transform duration-[1400ms] ease-out hover:scale-[1.03] sm:h-[380px] lg:h-[440px]"
             />
           </div>
         </div>
       </section>
 
       <section className="container-page py-20 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-4">
-            <Icon className="size-8 text-primary" strokeWidth={1.5} aria-hidden="true" />
-            <p className="eyebrow mt-6">What we provide</p>
+        <Reveal>
+          <div className="max-w-3xl">
+            <p className="eyebrow">Overview</p>
+            <h2 className="mt-4 text-2xl font-semibold text-foreground sm:text-3xl">
+              What {service.title.toLowerCase()} involves
+            </h2>
+            <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
+              {service.overview.split(/\n{2,}/).map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
           </div>
-          <div className="lg:col-span-8">
-            <ul className="space-y-4">
+        </Reveal>
+      </section>
+
+      <section className="bg-surface py-20 lg:py-24">
+        <div className="container-page">
+          <Reveal>
+            <SectionHeader
+              eyebrow="What we provide"
+              title={`What TOSS provides under ${service.title.toLowerCase()}`}
+            />
+          </Reveal>
+          <Reveal stagger className="mt-10">
+            <ul className="grid gap-x-10 gap-y-5 sm:grid-cols-2">
               {service.whatWeProvide.map((item, i) => (
                 <li
                   key={i}
                   className="flex items-start gap-3 text-base leading-relaxed text-muted-foreground"
                 >
-                  <ArrowRight
-                    className="mt-1.5 size-4 shrink-0 text-primary"
-                    aria-hidden="true"
-                  />
+                  <ArrowRight className="mt-1.5 size-4 shrink-0 text-primary" aria-hidden="true" />
                   {item}
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="container-page py-20 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-5">
+            <div>
+              <Icon className="size-8 text-primary" strokeWidth={1.5} aria-hidden="true" />
+              <p className="eyebrow mt-6">How TOSS helps</p>
+              <h2 className="mt-4 text-2xl font-semibold text-foreground sm:text-3xl">
+                Applying this service to your organization
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+                {service.howWeHelp}
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120} className="lg:col-span-7">
+            <div>
+              <p className="eyebrow">Key capabilities</p>
+              <ul className="mt-6 space-y-3">
+                {service.keyCapabilities.map((c, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 border-b border-border pb-3 text-base leading-relaxed text-foreground"
+                  >
+                    <span className="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-surface py-20 lg:py-24">
-        <div className="container-page">
-          <SectionHeader eyebrow="Technologies" title="Technologies & platforms" />
-          <div className="mt-10 flex flex-wrap gap-2">
-            {service.technologies.map((t) => (
-              <span
-                key={t}
-                className="border border-border bg-background px-4 py-2 text-sm text-foreground"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
+        <div className="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <div>
+              <p className="eyebrow">Who it&apos;s for</p>
+              <h2 className="mt-4 text-2xl font-semibold text-foreground sm:text-3xl">
+                Who can benefit
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+                {service.whoItsFor}
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div>
+              <p className="eyebrow">Why it matters</p>
+              <h2 className="mt-4 text-2xl font-semibold text-foreground sm:text-3xl">
+                Business value
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+                {service.whyItMatters}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="container-page py-20 lg:py-24">
+        <div>
+          <Reveal>
+            <SectionHeader eyebrow="Technologies" title="Technologies & platforms" />
+          </Reveal>
+          <Reveal stagger className="mt-10">
+            <div className="flex flex-wrap gap-2">
+              {service.technologies.map((t) => (
+                <span
+                  key={t}
+                  className="border border-border bg-surface px-4 py-2 text-sm text-foreground"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </Reveal>
           <p className="mt-6 max-w-2xl text-xs leading-relaxed text-muted-foreground">
             These are listed as technical capabilities and do not represent
             formal partnerships or vendor accreditations.

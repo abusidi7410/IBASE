@@ -1,29 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  Cctv,
-  Cloud,
-  Code2,
-  Compass,
-  Globe,
-  Network,
-  PhoneCall,
-  ShieldCheck,
-  SunMedium,
-  Wifi,
-  type LucideIcon,
-} from "lucide-react";
 import heroImage from "@/assets/hero-infrastructure.jpg";
 import engineersImage from "@/assets/engineers-network.jpg";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Reveal } from "@/components/site/Reveal";
+import { ServiceGrid } from "@/components/site/ServiceGrid";
 import { Capabilities } from "@/components/site/Capabilities";
 import { SolutionsList } from "@/components/site/SolutionsList";
 import { ProjectsList } from "@/components/site/ProjectsList";
 import { Industries } from "@/components/site/Industries";
 import { WhyToss } from "@/components/site/WhyToss";
 import { CTA } from "@/components/site/CTA";
-import { company, services } from "@/content/site";
+import { company } from "@/content/site";
 
 const title = "Tech One-Stop Solution Ltd | ICT & Technology Solutions in Nigeria";
 
@@ -41,10 +28,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
-const iconMap: Record<string, LucideIcon> = {
-  Globe, Wifi, Cloud, Network, PhoneCall, Code2, ShieldCheck, Cctv, SunMedium, Compass,
-};
 
 function Home() {
   return (
@@ -145,37 +128,15 @@ function Home() {
               intro="End-to-end technology solutions designed to connect, secure and transform modern organizations."
             />
           </Reveal>
-        <Reveal stagger className="mt-12">
-          <ul className="grid grid-cols-1 border-t border-border sm:grid-cols-2 lg:grid-cols-3">
-            {services.slice(0, 6).map((service) => {
-              const Icon = iconMap[service.icon] ?? Globe;
-              return (
-                <li
-                  key={service.slug}
-                  className="group relative border-b border-r border-border bg-background p-7 transition-all duration-300 hover:bg-white/40 hover:shadow-[0_2px_12px_rgba(0,0,0,0.04)] sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
-                >
-                  <div className="pointer-events-none absolute inset-0 border border-transparent transition-all duration-300 group-hover:border-white/40 group-hover:backdrop-blur-[6px] [-webkit-backdrop-filter:blur(6px)]" />
-                  <Link to="/services/$slug" params={{ slug: service.slug }} className="block">
-                    <Icon className="size-5 text-primary" aria-hidden="true" strokeWidth={1.5} />
-                    <h3 className="mt-5 flex items-start justify-between gap-3 text-base font-semibold text-foreground">
-                      {service.title}
-                      <ArrowRight className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary group-hover:translate-x-0.5" aria-hidden="true" />
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {service.description}
-                    </p>
-                  </Link>
-                </li>
-              );
-            })}
-            </ul>
-          </Reveal>
-          <Link
-            to="/services"
-            className="mt-8 inline-flex items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
-          >
-            View all services
-          </Link>
+          <ServiceGrid limit={6} />
+          <div className="mt-8">
+            <Link
+              to="/services"
+              className="inline-flex items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
+            >
+              View all services
+            </Link>
+          </div>
         </div>
       </section>
 

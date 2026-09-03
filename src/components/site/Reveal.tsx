@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ElementType,
+  type ReactNode,
+} from "react";
 
 /**
  * Reveal — wraps content and fades/slides it into view when it enters the
@@ -19,7 +25,7 @@ export function Reveal({
 }: {
   children: ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   stagger?: boolean;
   delay?: number;
 }) {
@@ -61,8 +67,7 @@ export function Reveal({
 
   return (
     <Tag
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ref={ref as any}
+      ref={ref}
       className={classes}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
