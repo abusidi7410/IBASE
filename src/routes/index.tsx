@@ -16,6 +16,7 @@ import {
 import heroImage from "@/assets/hero-infrastructure.jpg";
 import engineersImage from "@/assets/engineers-network.jpg";
 import { SectionHeader } from "@/components/site/SectionHeader";
+import { Reveal } from "@/components/site/Reveal";
 import { Capabilities } from "@/components/site/Capabilities";
 import { SolutionsList } from "@/components/site/SolutionsList";
 import { ProjectsList } from "@/components/site/ProjectsList";
@@ -50,20 +51,31 @@ function Home() {
     <>
       <section className="border-b border-border bg-surface">
         <div className="container-page grid items-center gap-12 py-16 lg:grid-cols-2 lg:gap-16 lg:py-24">
-          <div className="reveal">
-            <p className="eyebrow">{company.name}</p>
-            <h1 className="mt-5 text-3xl font-semibold leading-[1.15] text-foreground sm:text-4xl lg:text-[2.9rem]">
+          <div>
+            <p className="eyebrow animate-hero" style={{ animationDelay: "0ms" }}>
+              {company.name}
+            </p>
+            <h1
+              className="mt-5 animate-hero text-3xl font-semibold leading-[1.15] text-foreground sm:text-4xl lg:text-[2.9rem]"
+              style={{ animationDelay: "80ms" }}
+            >
               Technology solutions that keep your business connected, secure and moving forward.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+            <p
+              className="mt-6 max-w-xl animate-hero text-base leading-relaxed text-muted-foreground"
+              style={{ animationDelay: "160ms" }}
+            >
               TOSS delivers reliable ICT, networking, connectivity, cybersecurity, software, cloud
               and infrastructure solutions for organizations across Nigeria.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div
+              className="mt-9 flex animate-hero flex-wrap gap-3"
+              style={{ animationDelay: "240ms" }}
+            >
               <Link
                 to="/contact"
                 hash="quote"
-                className="inline-flex h-12 items-center rounded-sm bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+                className="inline-flex h-12 items-center rounded-sm bg-primary px-6 text-sm font-medium text-primary-foreground transition-all hover:bg-primary-hover hover:shadow-[0_4px_12px_rgba(214,129,18,0.25)]"
               >
                 Request a Quote
               </Link>
@@ -75,38 +87,22 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className="relative">
+          <div className="relative overflow-hidden animate-hero-image" style={{ animationDelay: "120ms" }}>
             <img
               src={heroImage}
               alt="Structured fiber optic cabling in an enterprise data center"
               width={1280}
               height={1440}
               fetchPriority="high"
-              className="h-[340px] w-full object-cover sm:h-[440px] lg:h-[520px]"
+              className="h-[340px] w-full object-cover transition-transform duration-[1400ms] ease-out hover:scale-[1.03] sm:h-[440px] lg:h-[520px]"
             />
-            <div className="glass absolute -bottom-5 -left-4 z-10 rounded-sm px-5 py-3 shadow-[0_2px_8px_rgba(0,0,0,0.06)] glass-enter sm:-left-6 sm:px-6 sm:py-4">
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                Est. 2020
-              </p>
-              <p className="mt-1 text-xs font-medium text-foreground/80">
-                Kaduna, Nigeria
-              </p>
-            </div>
-            <div className="glass absolute -right-3 top-6 z-10 rounded-sm px-4 py-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.06)] glass-enter-delayed sm:-right-5 sm:px-5 sm:py-3">
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-primary">
-                ICT Solutions
-              </p>
-              <p className="mt-0.5 text-[0.7rem] text-foreground/70">
-                Across Nigeria
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
       <section className="container-page py-20 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
+          <Reveal>
             <p className="eyebrow">Who we are</p>
             <h2 className="mt-4 text-2xl font-semibold text-foreground sm:text-3xl">
               Technology built around your business.
@@ -126,26 +122,31 @@ function Home() {
             <p className="mt-8 border-t border-border pt-6 text-sm font-semibold tracking-[0.16em] text-primary">
               EST. 2020
             </p>
-          </div>
-          <img
-            src={engineersImage}
-            alt="Server racks and network cabling in a data center environment"
-            width={1280}
-            height={960}
-            loading="lazy"
-            className="h-[300px] w-full object-cover sm:h-[400px]"
-          />
+          </Reveal>
+          <Reveal delay={120}>
+            <img
+              src={engineersImage}
+              alt="Server racks and network cabling in a data center environment"
+              width={1280}
+              height={960}
+              loading="lazy"
+              className="h-[300px] w-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-[1.02] sm:h-[400px]"
+            />
+          </Reveal>
         </div>
       </section>
 
       <section className="bg-surface py-20 lg:py-24">
         <div className="container-page">
-          <SectionHeader
-            eyebrow="Services"
-            title="Our Technology Services"
-            intro="End-to-end technology solutions designed to connect, secure and transform modern organizations."
-          />
-          <ul className="mt-12 grid grid-cols-1 border-t border-border sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Services"
+              title="Our Technology Services"
+              intro="End-to-end technology solutions designed to connect, secure and transform modern organizations."
+            />
+          </Reveal>
+        <Reveal stagger className="mt-12">
+          <ul className="grid grid-cols-1 border-t border-border sm:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 6).map((service) => {
               const Icon = iconMap[service.icon] ?? Globe;
               return (
@@ -167,7 +168,8 @@ function Home() {
                 </li>
               );
             })}
-          </ul>
+            </ul>
+          </Reveal>
           <Link
             to="/services"
             className="mt-8 inline-flex items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
@@ -180,38 +182,56 @@ function Home() {
       <Capabilities />
 
       <section className="container-page py-20 lg:py-24">
-        <SectionHeader
-          eyebrow="Solutions"
-          title="Technology solutions for real business needs."
-          intro="Software and platform solutions developed by TOSS for healthcare, finance, enterprise operations and identity management."
-        />
-        <SolutionsList />
+        <Reveal>
+          <SectionHeader
+            eyebrow="Solutions"
+            title="Technology solutions for real business needs."
+            intro="Software and platform solutions developed by TOSS for healthcare, finance, enterprise operations and identity management."
+          />
+        </Reveal>
+        <Reveal delay={100}>
+          <SolutionsList />
+        </Reveal>
       </section>
 
       <section className="bg-surface py-20 lg:py-24">
         <div className="container-page">
-          <SectionHeader
-            eyebrow="Projects"
-            title="Selected Projects"
-            intro="Technology solutions delivered across critical sectors."
-          />
-          <ProjectsList />
+          <Reveal>
+            <SectionHeader
+              eyebrow="Projects"
+              title="Selected Projects"
+              intro="Technology solutions delivered across critical sectors."
+            />
+          </Reveal>
+          <Reveal delay={100}>
+            <ProjectsList />
+          </Reveal>
         </div>
       </section>
 
       <section className="container-page py-20 lg:py-24">
-        <SectionHeader eyebrow="Why TOSS" title="Why organizations choose TOSS" />
-        <WhyToss />
+        <Reveal>
+          <SectionHeader eyebrow="Why TOSS" title="Why organizations choose TOSS" />
+        </Reveal>
+        <Reveal stagger delay={100}>
+          <WhyToss />
+        </Reveal>
       </section>
 
       <section className="bg-surface py-20 lg:py-24">
         <div className="container-page">
-          <SectionHeader eyebrow="Industries" title="Industries we serve" />
-          <Industries />
+          <Reveal>
+            <SectionHeader eyebrow="Industries" title="Industries we serve" />
+          </Reveal>
+          <Reveal stagger delay={100}>
+            <Industries />
+          </Reveal>
         </div>
       </section>
 
-      <CTA />
+      <Reveal>
+        <CTA />
+      </Reveal>
     </>
   );
 }
