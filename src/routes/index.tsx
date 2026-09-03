@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/A network server with multiple ethernet cables 65611207 Stock Photo at Vecteezy and 8 more pages - Personal - Microsoft_ Edge 9_3_2026 1_30_34 PM-ezremove.png";
-import engineersImage from "@/assets/engineers-network.jpg";
+import engineersImage from "@/assets/WhatsApp Image 2026-09-03 at 1.41.01 PM.jpeg";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Reveal } from "@/components/site/Reveal";
 import { ServiceGrid } from "@/components/site/ServiceGrid";
@@ -109,9 +109,9 @@ function Home() {
           <Reveal delay={120}>
             <img
               src={engineersImage}
-              alt="Server racks and network cabling in a data center environment"
-              width={1280}
-              height={960}
+              alt="Enterprise network server and cabling infrastructure"
+              width={714}
+              height={1280}
               loading="lazy"
               className="h-[300px] w-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-[1.02] sm:h-[400px]"
             />
